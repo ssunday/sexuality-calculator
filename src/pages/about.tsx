@@ -1,7 +1,9 @@
-import React from 'react'
+import React from "react";
 
-export default () => (
+const About = (): React.ReactNode => (
   <div>
     <p>React Static is a progressive static site generator for React.</p>
   </div>
-)
+);
+
+export default About;

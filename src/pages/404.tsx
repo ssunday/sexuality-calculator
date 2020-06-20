@@ -1,7 +1,9 @@
-import React from 'react'
+import React from "react";
 
-export default () => (
+const NotFound = (): React.ReactNode => (
   <div>
-    <h1>404 - Oh no's! We couldn't find that page :(</h1>
+    <h1>404 - Oh no! Page not found</h1>
   </div>
-)
+);
+
+export default NotFound;
