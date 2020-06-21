@@ -1,5 +1,5 @@
 import React from "react";
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export type RadioOption = {
   value: string;
@@ -8,6 +8,7 @@ export type RadioOption = {
 };
 
 type Props = {
+  value: string;
   options: RadioOption[];
   onChange: (value: string) => void;
 };
@@ -18,12 +19,18 @@ const RadioQuestion = (props: Props): JSX.Element => {
   return (
     <>
       {props.options.map((option) => {
-         return (
-           <>
-             <RadioOptionInput type="radio" name={option.name} value={option.value} />
-             <label>{option.label}</label>
-           </>
-         );
+        return (
+          <div key={option.name}>
+            <RadioOptionInput
+              type="radio"
+              name={option.name}
+              value={option.value}
+              checked={props.value == option.value}
+              onChange={() => props.onChange(option.value)}
+            />
+            <label>{option.label}</label>
+          </div>
+        );
       })}
     </>
   );

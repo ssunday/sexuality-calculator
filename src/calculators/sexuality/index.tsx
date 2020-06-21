@@ -1,15 +1,32 @@
 import React from "react";
 import RadioQuestion from "components/RadioQuestion";
-import { yesNo } from "./questions";
+import { QuestionAnswers, allQuestions } from "./questions";
 
 const SexualityCalculatorComponent = (): JSX.Element => {
+  const [answers, setAnswers] = React.useState<QuestionAnswers>();
+
   return (
     <>
-      <h2>Do you experience attraction</h2>
-      <RadioQuestion
-        onChange={() => {}}
-        options={yesNo('attraction')}
-      />
+      {allQuestions().map((question) => {
+        const updateAnswers = (value: string): void => {
+          if (answers) {
+            setAnswers({ ...answers, [question.id]: value });
+          } else {
+            setAnswers({ [question.id]: value });
+          }
+        };
+
+        return (
+          <div key={question.id}>
+            <h2>{question.title}</h2>
+            <RadioQuestion
+              value={answers ? answers[question.id] : undefined}
+              onChange={updateAnswers}
+              options={question.options}
+            />
+          </div>
+        );
+      })}
     </>
   );
 };

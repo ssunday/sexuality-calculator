@@ -1,17 +1,17 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from "styled-components";
 
 export enum COLORS {
-  BLUE = '#001a98',
-  RED = '#e20000',
-  GREEN = '#06bf00',
-  WHITE = '#FFF',
-};
+  BLUE = "#001a98",
+  RED = "#e20000",
+  GREEN = "#06bf00",
+  WHITE = "#FFF",
+}
 
 export enum FONT_SIZE {
-  NORMAL = '1.0em',
-  MEDIUM = '1.2em',
-  LARGE = '1.4em',
-};
+  NORMAL = "1.0em",
+  MEDIUM = "1.2em",
+  LARGE = "1.4em",
+}
 
 export const GlobalStyle = createGlobalStyle`
   * {
@@ -32,4 +32,4 @@ export const GlobalStyle = createGlobalStyle`
     padding: 2em;
     max-width: 1200px;
   }
-`
+`;

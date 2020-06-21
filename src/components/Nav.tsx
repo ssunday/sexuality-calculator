@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import { COLORS, FONT_SIZE } from '../Styles';
+import styled from "styled-components";
+import { COLORS, FONT_SIZE } from "../Styles";
 
 const Nav = styled.nav`
   background: ${COLORS.BLUE};
@@ -12,5 +12,5 @@ const Nav = styled.nav`
     color: ${COLORS.WHITE};
     font-size: ${FONT_SIZE.MEDIUM};
   }
-`
+`;
 export default Nav;

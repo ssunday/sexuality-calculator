@@ -7,7 +7,10 @@ import Nav from "components/Nav";
 const App = (): JSX.Element => {
   return (
     <Root>
-      <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet" />
+      <link
+        href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap"
+        rel="stylesheet"
+      />
       <GlobalStyle />
       <Nav>
         <Link to="/">Home</Link>
@@ -16,7 +19,6 @@ const App = (): JSX.Element => {
       </Nav>
       <div className="container">
         <React.Suspense fallback={<em>Loading...</em>}>
-
           <Router>
             <Routes path="*" />
           </Router>
