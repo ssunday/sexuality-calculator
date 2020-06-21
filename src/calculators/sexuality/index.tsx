@@ -13,7 +13,7 @@ const SexualityCalculatorComponent = (): JSX.Element => {
     const resetCalculator = (): void => {
       setResult(undefined);
       setAnswers(undefined);
-    }
+    };
 
     return (
       <>

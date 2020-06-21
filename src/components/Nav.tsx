@@ -10,7 +10,7 @@ const Nav = styled.nav`
 
   a {
     color: ${COLORS.WHITE};
-    font-size: ${FONT_SIZE.MEDIUM};
+    font-size: ${FONT_SIZE.Medium};
     padding: 0.25em;
     text-decoration: none;
 

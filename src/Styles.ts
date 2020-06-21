@@ -6,13 +6,14 @@ export enum COLORS {
   DARK_RED = "#9E0000",
   GREEN = "#06bf00",
   DARK_GREEN = "#049800",
+  PURPLE = "#8901ff",
   WHITE = "#FFF",
 }
 
 export enum FONT_SIZE {
-  NORMAL = "1.0em",
-  MEDIUM = "1.2em",
-  LARGE = "1.4em",
+  Normal = "1.0em",
+  Medium = "1.2em",
+  Large = "1.4em",
 }
 
 export const GlobalStyle = createGlobalStyle`

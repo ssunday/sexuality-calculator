@@ -8,9 +8,10 @@ const Footer = styled.footer`
   padding: 1em 0.5em;
   width: 100%;
 
-  p, a {
+  p,
+  a {
     color: ${COLORS.WHITE};
-    font-size: ${FONT_SIZE.MEDIUM};
+    font-size: ${FONT_SIZE.Medium};
     padding: 0.25em;
     text-decoration: none;
 
