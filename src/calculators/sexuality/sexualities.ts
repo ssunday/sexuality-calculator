@@ -6,4 +6,5 @@ export enum Sexuality {
   Apothisexual = "Apothisexual",
   Pansexual = "Pansexual",
   Autochorisexual = "Autochorisexual",
+  Unknown = "Unknown",
 }

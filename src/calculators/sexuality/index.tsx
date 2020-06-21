@@ -28,6 +28,8 @@ const SexualityCalculatorComponent = (): JSX.Element => {
     );
   }
 
+  const allAnswered = allQuestions().every((question) => answers && answers[question.id]);
+
   return (
     <>
       {allQuestions().map((question) => {
@@ -50,9 +52,10 @@ const SexualityCalculatorComponent = (): JSX.Element => {
           </div>
         );
       })}
-      <Button type="submit" onClick={() => setResult(calculate())}>
+      {allAnswered && <Button type="submit" onClick={() => setResult(calculate(answers))}>
         Submit
-      </Button>
+      </Button>}
+      {!allAnswered && <p>Please answer all questions</p>}
     </>
   );
 };

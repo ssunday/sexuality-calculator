@@ -15,7 +15,7 @@ type Props = {
 };
 
 const InputWrapper = styled.div`
-  border: 2px solid ${Colors.PURPLE};
+  border: 2px solid ${Colors.Purple};
   border-radius: 2px;
   padding: 1em 4em;
   margin: 0.5em;
@@ -30,7 +30,7 @@ const InputWrapper = styled.div`
   }
 
   .radio-mark {
-    border: 2px solid ${Colors.PURPLE};
+    border: 2px solid ${Colors.Purple};
     border-radius: 50%;
     content: "";
     display: inline-block;
@@ -41,7 +41,7 @@ const InputWrapper = styled.div`
   }
 
   input:checked ~ .radio-mark:after {
-    background-color: ${Colors.PURPLE};
+    background-color: ${Colors.Purple};
     border-radius: 50%;
     content: "";
     display: inline-block;

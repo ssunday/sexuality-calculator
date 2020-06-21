@@ -1,19 +1,20 @@
 import { RadioOption } from "components/RadioQuestion";
 
-enum QuestionTopic {
+export enum QuestionTopic {
   Allosexual,
   Homosexual,
   Heterosexual,
   Demisexual,
+  Pansexual,
   Enjoy,
   Want,
   Apothisexual,
+  Autochorisexual,
 }
 
-enum YesNoNA {
+export enum YesNo {
   Yes = "yes",
   No = "no",
-  NA = "na",
 }
 
 export type QuestionAnswers = Record<number, string>;
@@ -27,27 +28,33 @@ type Question = {
 export const allQuestions = (): Question[] => {
   return [
     {
-      title: "Do you experience sexual attraction?",
+      title: "Do you experience sexual attraction and want sex?",
       id: QuestionTopic.Allosexual,
       options: yesNo("allosexual"),
     },
     {
       title:
-        "Do you experience sexual attraction towards those that identify as your gender?",
+        "Do you experience sexual attraction specifically towards those that identify as your gender?",
       id: QuestionTopic.Homosexual,
       options: yesNo("homosexual"),
     },
     {
       title:
-        "Do you experience sexual attraction towards those that identify as not of your gender?",
+        "Do you experience sexual attraction specifically towards those that identify as not of your gender?",
       id: QuestionTopic.Heterosexual,
       options: yesNo("heterosexual"),
     },
     {
       title:
-        "Do you experience sexual attraction towards only those that you care about?",
+        "Do you experience sexual attraction specifically towards only those that you care about?",
       id: QuestionTopic.Demisexual,
       options: yesNo("demisexual"),
+    },
+    {
+      title:
+        "Do you experience sexual attraction without limitation (i.e. by gender/sex)?",
+      id: QuestionTopic.Pansexual,
+      options: yesNo("pansexual"),
     },
     {
       title: "Do you enjoy sex (if you have had it)?",
@@ -64,13 +71,18 @@ export const allQuestions = (): Question[] => {
       id: QuestionTopic.Apothisexual,
       options: yesNo("apothisexual"),
     },
+    {
+      title:
+        "Are you only interested in sex when it is not you or in a 'imaginative' setting?",
+      id: QuestionTopic.Autochorisexual,
+      options: yesNo("autochorisexual"),
+    },
   ];
 };
 
 const yesNo = (id: string): RadioOption[] => {
   return [
-    { value: YesNoNA.Yes, name: `${id}_yes`, label: "Yes" },
-    { value: YesNoNA.No, name: `${id}_no`, label: "No" },
-    { value: YesNoNA.NA, name: `${id}_na`, label: "N/A" },
+    { value: YesNo.Yes, name: `${id}_yes`, label: "Yes" },
+    { value: YesNo.No, name: `${id}_no`, label: "No" },
   ];
 };

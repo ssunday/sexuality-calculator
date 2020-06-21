@@ -1,13 +1,14 @@
 import { createGlobalStyle } from "styled-components";
 
 export enum Colors {
-  BLUE = "#001a98",
-  RED = "#e20000",
-  DARK_RED = "#9E0000",
-  GREEN = "#036100",
-  DARK_GREEN = "#044200",
-  PURPLE = "#6700C2",
-  WHITE = "#FFF",
+  Blue = "#001a98",
+  Red = "#e20000",
+  DarkRed = "#9E0000",
+  Green = "#036100",
+  DarkGreen = "#044200",
+  Purple = "#6700C2",
+  Grey = "#595959",
+  White = "#FFF",
 }
 
 export enum FontSize {
