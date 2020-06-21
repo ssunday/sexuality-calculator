@@ -8,3 +8,7 @@
 ## Linting
 
 `npm run lint:fix`
+
+## Testing
+
+`npm run test`
