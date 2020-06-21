@@ -17,9 +17,7 @@
     "noEmit": true,
     "baseUrl": ".",
     "paths": {
-      "components/*": ["src/components/*"],
-      "containers/*": ["src/containers/*"],
-      "types/*": ["types/*"]
+      "components/*": ["src/components/*"]
     },
     "lib": ["dom", "es2015", "es2016"]
   },
