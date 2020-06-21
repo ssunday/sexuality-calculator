@@ -1,50 +1,52 @@
 import { Sexuality } from "./sexuality";
-import { QuestionTopic, QuestionAnswers, YesNo } from "./questions";
+import { QuestionAnswers, YesNo } from "./questions";
 
-const isYes = (answers: QuestionAnswers, topic: QuestionTopic): boolean => {
+const isYes = (answers: QuestionAnswers, topic: Sexuality): boolean => {
   return answers[topic] === YesNo.Yes;
 };
 
-const calculate = (answers: QuestionAnswers): Sexuality[] => {
-  const possibleAnswers = [];
-  if (answers[QuestionTopic.Allosexual] === YesNo.Yes) {
-    if (isYes(answers, QuestionTopic.Pansexual)) {
-      possibleAnswers.push(Sexuality.Pansexual);
-    } else if (
-      isYes(answers, QuestionTopic.Homosexual) &&
-      isYes(answers, QuestionTopic.Heterosexual)
-    ) {
-      possibleAnswers.push(Sexuality.Bisexual);
-    } else if (isYes(answers, QuestionTopic.Homosexual)) {
-      possibleAnswers.push(Sexuality.Homosexual);
-    } else if (isYes(answers, QuestionTopic.Heterosexual)) {
-      possibleAnswers.push(Sexuality.Heterosexual);
-    } else {
-      possibleAnswers.push(Sexuality.Allosexual);
-    }
-  } else if (answers[QuestionTopic.Allosexual] === YesNo.Sometimes) {
-    possibleAnswers.push(Sexuality.GrayAsexual);
-    if (isYes(answers, QuestionTopic.Demisexual)) {
-      possibleAnswers.push(Sexuality.Demisexual);
-    }
-  } else {
-    possibleAnswers.push(Sexuality.Asexual);
-
-    if (isYes(answers, QuestionTopic.Apothisexual)) {
-      possibleAnswers.push(Sexuality.Apothisexual);
-    }
-    if (isYes(answers, QuestionTopic.Autochorisexual)) {
-      possibleAnswers.push(Sexuality.Autochorisexual);
-    }
-
-    if (isYes(answers, QuestionTopic.Cupiosexual)) {
-      possibleAnswers.push(Sexuality.Cupiosexual);
-    }
-    if (isYes(answers, QuestionTopic.Lithosexual)) {
-      possibleAnswers.push(Sexuality.Lithosexual);
-    }
+const addIfYes = (
+  answers: QuestionAnswers,
+  possibleResults: Sexuality[],
+  sexuality: Sexuality
+): void => {
+  if (isYes(answers, sexuality)) {
+    possibleResults.push(sexuality);
   }
-  return possibleAnswers;
+};
+
+const calculate = (answers: QuestionAnswers): Sexuality[] => {
+  const possibleResults: Sexuality[] = [];
+
+  if (answers[Sexuality.Allosexual] === YesNo.Yes) {
+    addIfYes(answers, possibleResults, Sexuality.Pansexual);
+
+    if (
+      isYes(answers, Sexuality.Homosexual) &&
+      isYes(answers, Sexuality.Heterosexual)
+    ) {
+      possibleResults.push(Sexuality.Bisexual);
+    } else if (isYes(answers, Sexuality.Homosexual)) {
+      possibleResults.push(Sexuality.Homosexual);
+    } else if (isYes(answers, Sexuality.Heterosexual)) {
+      possibleResults.push(Sexuality.Heterosexual);
+    } else {
+      possibleResults.push(Sexuality.Allosexual);
+    }
+  } else if (answers[Sexuality.Allosexual] === YesNo.Sometimes) {
+    possibleResults.push(Sexuality.GrayAsexual);
+    addIfYes(answers, possibleResults, Sexuality.Demisexual);
+    addIfYes(answers, possibleResults, Sexuality.Fraysexual);
+  } else {
+    possibleResults.push(Sexuality.Asexual);
+
+    addIfYes(answers, possibleResults, Sexuality.Apothisexual);
+    addIfYes(answers, possibleResults, Sexuality.Autochorisexual);
+    addIfYes(answers, possibleResults, Sexuality.Cupiosexual);
+    addIfYes(answers, possibleResults, Sexuality.Lithosexual);
+  }
+
+  return possibleResults;
 };
 
 export default calculate;

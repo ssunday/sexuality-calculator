@@ -2,12 +2,16 @@ import { createGlobalStyle } from "styled-components";
 
 export enum Colors {
   Blue = "#001a98",
+  DarkBlue = "#000F5C",
+  LightBlue = "#6675C1",
   Red = "#e20000",
   DarkRed = "#9E0000",
   Green = "#036100",
   DarkGreen = "#044200",
   Purple = "#6700C2",
+  LightPurple = "#9214FF",
   Grey = "#595959",
+  OffWhite = "#C7C7C7",
   White = "#FFF",
 }
 
@@ -24,6 +28,7 @@ export const GlobalStyle = createGlobalStyle`
 
   body {
     font-family: 'Source Sans Pro', sans-serif;
+    font-size: ${FontSize.Normal};
     margin: 0;
     padding: 0;
   }

@@ -24,9 +24,7 @@ const App = (): JSX.Element => {
           </Router>
         </React.Suspense>
       </div>
-      <Footer>
-        <p>Made by me</p>
-      </Footer>
+      <Footer></Footer>
     </Root>
   );
 };

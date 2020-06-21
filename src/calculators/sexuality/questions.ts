@@ -1,18 +1,5 @@
 import { RadioOption } from "components/RadioQuestion";
-
-export enum QuestionTopic {
-  Allosexual,
-  Homosexual,
-  Heterosexual,
-  Demisexual,
-  Pansexual,
-  Enjoy,
-  Want,
-  Cupiosexual,
-  Lithosexual,
-  Apothisexual,
-  Autochorisexual,
-}
+import { Sexuality } from "./sexuality";
 
 export enum YesNo {
   Yes = "yes",
@@ -20,20 +7,20 @@ export enum YesNo {
   Sometimes = "sometimes",
 }
 
-export type QuestionAnswers = Record<number, string>;
+export type QuestionAnswers = Record<string, string>;
 
 export type Question = {
   title: string;
-  id: QuestionTopic;
+  id: Sexuality;
   options: RadioOption[];
 };
 
 export const questionsForMainSexualityChoice = (
   answers: QuestionAnswers
 ): Question[] => {
-  if (answers[QuestionTopic.Allosexual] === YesNo.Yes) {
+  if (answers[Sexuality.Allosexual] === YesNo.Yes) {
     return allosexualQuestions();
-  } else if (answers[QuestionTopic.Allosexual] === YesNo.Sometimes) {
+  } else if (answers[Sexuality.Allosexual] === YesNo.Sometimes) {
     return grayAceQuestions();
   }
   return asexualQuestions();
@@ -42,9 +29,8 @@ export const questionsForMainSexualityChoice = (
 export const initialQuestions = (): Question[] => {
   return [
     {
-      title:
-        "Do you experience physical sexual attraction and want sex of any forms?",
-      id: QuestionTopic.Allosexual,
+      title: "Do you experience physical sexual attraction?",
+      id: Sexuality.Allosexual,
       options: yesNoSometimes("allosexual"),
     },
   ];
@@ -55,20 +41,20 @@ const allosexualQuestions = (): Question[] => {
     {
       title:
         "Do you experience sexual attraction specifically towards those that identify as your gender?",
-      id: QuestionTopic.Homosexual,
+      id: Sexuality.Homosexual,
       options: yesNo("homosexual"),
     },
     {
       title:
         "Do you experience sexual attraction specifically towards those that identify as not of your gender?",
-      id: QuestionTopic.Heterosexual,
+      id: Sexuality.Heterosexual,
       options: yesNo("heterosexual"),
     },
 
     {
       title:
         "Do you experience sexual attraction without limitation (i.e. by gender/sex)?",
-      id: QuestionTopic.Pansexual,
+      id: Sexuality.Pansexual,
       options: yesNo("pansexual"),
     },
   ];
@@ -79,8 +65,13 @@ const grayAceQuestions = (): Question[] => {
     {
       title:
         "Do you experience sexual attraction specifically towards only those that you care about?",
-      id: QuestionTopic.Demisexual,
+      id: Sexuality.Demisexual,
       options: yesNo("demisexual"),
+    },
+    {
+      title: "Do you experience sexual attraction at first then lose interest?",
+      id: Sexuality.Fraysexual,
+      options: yesNo("fraysexual"),
     },
   ];
 };
@@ -89,24 +80,24 @@ const asexualQuestions = (): Question[] => {
   return [
     {
       title: "Do you still desire a sexual relationship?",
-      id: QuestionTopic.Cupiosexual,
+      id: Sexuality.Cupiosexual,
       options: yesNo("cupiosexual"),
     },
     {
       title:
         "Do you experience sexual attraction but do not want it reciprocated/acted upon?",
-      id: QuestionTopic.Lithosexual,
+      id: Sexuality.Lithosexual,
       options: yesNo("lithosexual"),
     },
     {
       title: "Are you repulsed by the idea of physically having sex?",
-      id: QuestionTopic.Apothisexual,
+      id: Sexuality.Apothisexual,
       options: yesNo("apothisexual"),
     },
     {
       title:
         "Are you only interested in sex when it is not you or in a 'imaginative' setting?",
-      id: QuestionTopic.Autochorisexual,
+      id: Sexuality.Autochorisexual,
       options: yesNo("autochorisexual"),
     },
   ];

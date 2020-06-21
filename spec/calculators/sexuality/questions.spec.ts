@@ -1,41 +1,41 @@
 import {
   questionsForMainSexualityChoice,
   YesNo,
-  QuestionTopic,
   initialQuestions,
 } from "../../../src/calculators/sexuality/questions";
+import { Sexuality } from "../../../src/calculators/sexuality/sexuality";
 
 describe("sexuality - questions", () => {
   describe("initialQuestions", () => {
     it("returns only basic sexual attraction q", () => {
       const questions = initialQuestions();
       expect(questions.length).toBe(1);
-      expect(questions[0].id).toBe(QuestionTopic.Allosexual);
+      expect(questions[0].id).toBe(Sexuality.Allosexual);
     });
   });
 
   describe("questionsForMainSexualityChoice", () => {
     it("returns allosexual set if answered yes", () => {
       const questions = questionsForMainSexualityChoice({
-        [QuestionTopic.Allosexual]: YesNo.Yes,
+        [Sexuality.Allosexual]: YesNo.Yes,
       });
-      expect(questions[0].id).toBe(QuestionTopic.Homosexual);
-      expect(questions[1].id).toBe(QuestionTopic.Heterosexual);
+      expect(questions[0].id).toBe(Sexuality.Homosexual);
+      expect(questions[1].id).toBe(Sexuality.Heterosexual);
     });
 
     it("returns asexual set if answered yes", () => {
       const questions = questionsForMainSexualityChoice({
-        [QuestionTopic.Allosexual]: YesNo.No,
+        [Sexuality.Allosexual]: YesNo.No,
       });
-      expect(questions[0].id).toBe(QuestionTopic.Cupiosexual);
-      expect(questions[1].id).toBe(QuestionTopic.Lithosexual);
+      expect(questions[0].id).toBe(Sexuality.Cupiosexual);
+      expect(questions[1].id).toBe(Sexuality.Lithosexual);
     });
 
     it("returns gray asexual set if answered sometimes", () => {
       const questions = questionsForMainSexualityChoice({
-        [QuestionTopic.Allosexual]: YesNo.Sometimes,
+        [Sexuality.Allosexual]: YesNo.Sometimes,
       });
-      expect(questions[0].id).toBe(QuestionTopic.Demisexual);
+      expect(questions[0].id).toBe(Sexuality.Demisexual);
     });
   });
 });

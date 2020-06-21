@@ -2,21 +2,27 @@ import styled from "styled-components";
 import { Colors, FontSize } from "../Styles";
 
 const Nav = styled.nav`
-  background: ${Colors.Blue};
+  background-color: ${Colors.Blue};
+  border-bottom: 4px solid ${Colors.Grey};
   display: flex;
-  padding: 1em 0.5em;
   width: 100%;
 
   a {
+    border-bottom: 4px solid ${Colors.Blue};
     color: ${Colors.White};
-    font-size: ${FontSize.Medium};
-    margin: 0 1em;
-    padding: 0.25em;
+    font-size: ${FontSize.Large};
+    margin: 0 1em 0 0;
+    padding: 1em 0.5em 0.5em 1em;
     text-decoration: none;
 
     &:hover {
-      text-decoration: underline;
+      border-bottom-color: ${Colors.LightBlue};
+      color: ${Colors.OffWhite};
     }
+  }
+
+  a[aria-current="page"] {
+    border-bottom-color: ${Colors.LightPurple};
   }
 `;
 export default Nav;

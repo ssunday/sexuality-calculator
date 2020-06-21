@@ -9,6 +9,7 @@ export type RadioOption = {
 };
 
 type Props = {
+  question: string;
   value: string;
   options: RadioOption[];
   onChange: (value: string) => void;
@@ -61,25 +62,28 @@ const QuestionWrapper = styled.div`
 
 const RadioQuestion = (props: Props): JSX.Element => {
   return (
-    <QuestionWrapper>
-      {props.options.map((option) => {
-        return (
-          <InputWrapper key={option.name}>
-            <label>
-              <input
-                type="radio"
-                name={option.name}
-                value={option.value}
-                checked={props.value == option.value}
-                onChange={() => props.onChange(option.value)}
-              />
-              {option.label}
-              <span className="radio-mark" />
-            </label>
-          </InputWrapper>
-        );
-      })}
-    </QuestionWrapper>
+    <>
+      <h3>{props.question}</h3>
+      <QuestionWrapper>
+        {props.options.map((option) => {
+          return (
+            <InputWrapper key={option.name}>
+              <label>
+                <input
+                  type="radio"
+                  name={option.name}
+                  value={option.value}
+                  checked={props.value == option.value}
+                  onChange={() => props.onChange(option.value)}
+                />
+                {option.label}
+                <span className="radio-mark" />
+              </label>
+            </InputWrapper>
+          );
+        })}
+      </QuestionWrapper>
+    </>
   );
 };
 

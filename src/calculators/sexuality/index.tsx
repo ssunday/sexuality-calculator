@@ -1,6 +1,6 @@
 import React from "react";
 import RadioQuestion from "components/RadioQuestion";
-import Button from "components/Button";
+import { Button, SecondaryButton } from "components/Button";
 import {
   questionsForMainSexualityChoice,
   QuestionAnswers,
@@ -19,21 +19,6 @@ const SexualityCalculatorComponent = (): JSX.Element => {
     setAnswers(undefined);
   };
 
-  if (result) {
-    return (
-      <>
-        <h2>
-          You may be {result.join(" or ")}. Remember only you can know/decide for
-          certain.
-        </h2>
-
-        <Button type="submit" onClick={resetCalculator}>
-          Reset
-        </Button>
-      </>
-    );
-  }
-
   const renderQuestions = (questions: Question[]): JSX.Element[] => {
     return questions.map((question) => {
       const updateAnswers = (value: string): void => {
@@ -46,8 +31,8 @@ const SexualityCalculatorComponent = (): JSX.Element => {
 
       return (
         <div key={question.id}>
-          <h3>{question.title}</h3>
           <RadioQuestion
+            question={question.title}
             value={answers ? answers[question.id] : undefined}
             onChange={updateAnswers}
             options={question.options}
@@ -57,16 +42,26 @@ const SexualityCalculatorComponent = (): JSX.Element => {
     });
   };
 
+  const applicableQuestions = answers
+    ? questionsForMainSexualityChoice(answers)
+    : [];
+  const allQuestionsAnswered =
+    answers && applicableQuestions.every((q) => answers[q.id]);
+
   return (
     <>
       {renderQuestions(initialQuestions())}
-      {answers && renderQuestions(questionsForMainSexualityChoice(answers))}
-      <Button type="submit" onClick={() => setResult(calculate(answers))}>
-        Submit
-      </Button>
-      <Button type="button" onClick={() => resetCalculator()}>
+      {renderQuestions(applicableQuestions)}
+      {allQuestionsAnswered && (
+        <Button type="submit" onClick={() => setResult(calculate(answers))}>
+          Submit
+        </Button>
+      )}
+      {result && <h2>You may be {result.join(" or ")}.</h2>}
+
+      <SecondaryButton type="button" onClick={() => resetCalculator()}>
         Reset
-      </Button>
+      </SecondaryButton>
     </>
   );
 };
