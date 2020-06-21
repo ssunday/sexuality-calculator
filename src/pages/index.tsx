@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "@reach/router";
-import { Sexuality } from "../calculators/sexuality/sexualities";
+import { Sexuality } from "../calculators/sexuality/sexuality";
 
 const Index = (): JSX.Element => (
   <div>

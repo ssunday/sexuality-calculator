@@ -7,8 +7,9 @@
     "build": "react-static build",
     "bundle": "react-static bundle",
     "export": "react-static export",
-    "lint:fix": "eslint --fix src",
+    "lint:fix": "eslint --fix src spec",
     "test": "jest",
+    "test:watch": "jest --watch",
     "serve": "serve dist -p 3000 -s"
   },
   "dependencies": {

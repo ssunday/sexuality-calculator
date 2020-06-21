@@ -1,35 +1,50 @@
-import { Sexuality } from "./sexualities";
+import { Sexuality } from "./sexuality";
 import { QuestionTopic, QuestionAnswers, YesNo } from "./questions";
 
 const isYes = (answers: QuestionAnswers, topic: QuestionTopic): boolean => {
   return answers[topic] === YesNo.Yes;
 };
 
-const calculate = (answers: QuestionAnswers): Sexuality => {
+const calculate = (answers: QuestionAnswers): Sexuality[] => {
+  const possibleAnswers = [];
   if (answers[QuestionTopic.Allosexual] === YesNo.Yes) {
     if (isYes(answers, QuestionTopic.Pansexual)) {
-      return Sexuality.Pansexual;
+      possibleAnswers.push(Sexuality.Pansexual);
     } else if (
       isYes(answers, QuestionTopic.Homosexual) &&
       isYes(answers, QuestionTopic.Heterosexual)
     ) {
-      return Sexuality.Bisexual;
+      possibleAnswers.push(Sexuality.Bisexual);
     } else if (isYes(answers, QuestionTopic.Homosexual)) {
-      return Sexuality.Homosexual;
+      possibleAnswers.push(Sexuality.Homosexual);
     } else if (isYes(answers, QuestionTopic.Heterosexual)) {
-      return Sexuality.Heterosexual;
-    } else if (isYes(answers, QuestionTopic.Demisexual)) {
-      return Sexuality.Demisexual;
+      possibleAnswers.push(Sexuality.Heterosexual);
+    } else {
+      possibleAnswers.push(Sexuality.Allosexual);
     }
-    return Sexuality.Allosexual;
-  }
+  } else if (answers[QuestionTopic.Allosexual] === YesNo.Sometimes) {
+    possibleAnswers.push(Sexuality.GrayAsexual);
+    if (isYes(answers, QuestionTopic.Demisexual)) {
+      possibleAnswers.push(Sexuality.Demisexual);
+    }
+  } else {
+    possibleAnswers.push(Sexuality.Asexual);
 
-  if (isYes(answers, QuestionTopic.Apothisexual)) {
-    return Sexuality.Apothisexual;
-  } else if (isYes(answers, QuestionTopic.Autochorisexual)) {
-    return Sexuality.Autochorisexual;
+    if (isYes(answers, QuestionTopic.Apothisexual)) {
+      possibleAnswers.push(Sexuality.Apothisexual);
+    }
+    if (isYes(answers, QuestionTopic.Autochorisexual)) {
+      possibleAnswers.push(Sexuality.Autochorisexual);
+    }
+
+    if (isYes(answers, QuestionTopic.Cupiosexual)) {
+      possibleAnswers.push(Sexuality.Cupiosexual);
+    }
+    if (isYes(answers, QuestionTopic.Lithosexual)) {
+      possibleAnswers.push(Sexuality.Lithosexual);
+    }
   }
-  return Sexuality.Asexual;
+  return possibleAnswers;
 };
 
 export default calculate;

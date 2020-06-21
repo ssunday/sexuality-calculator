@@ -8,6 +8,8 @@ export enum QuestionTopic {
   Pansexual,
   Enjoy,
   Want,
+  Cupiosexual,
+  Lithosexual,
   Apothisexual,
   Autochorisexual,
 }
@@ -15,6 +17,7 @@ export enum QuestionTopic {
 export enum YesNo {
   Yes = "yes",
   No = "no",
+  Sometimes = "sometimes",
 }
 
 export type QuestionAnswers = Record<number, string>;
@@ -25,11 +28,26 @@ export type Question = {
   options: RadioOption[];
 };
 
-export const displayQuestionSet = (answers: QuestionAnswers): Question[] => {
+export const questionsForMainSexualityChoice = (
+  answers: QuestionAnswers
+): Question[] => {
   if (answers[QuestionTopic.Allosexual] === YesNo.Yes) {
     return allosexualQuestions();
+  } else if (answers[QuestionTopic.Allosexual] === YesNo.Sometimes) {
+    return grayAceQuestions();
   }
   return asexualQuestions();
+};
+
+export const initialQuestions = (): Question[] => {
+  return [
+    {
+      title:
+        "Do you experience physical sexual attraction and want sex of any forms?",
+      id: QuestionTopic.Allosexual,
+      options: yesNoSometimes("allosexual"),
+    },
+  ];
 };
 
 const allosexualQuestions = (): Question[] => {
@@ -46,12 +64,7 @@ const allosexualQuestions = (): Question[] => {
       id: QuestionTopic.Heterosexual,
       options: yesNo("heterosexual"),
     },
-    {
-      title:
-        "Do you experience sexual attraction specifically towards only those that you care about?",
-      id: QuestionTopic.Demisexual,
-      options: yesNo("demisexual"),
-    },
+
     {
       title:
         "Do you experience sexual attraction without limitation (i.e. by gender/sex)?",
@@ -61,17 +74,29 @@ const allosexualQuestions = (): Question[] => {
   ];
 };
 
+const grayAceQuestions = (): Question[] => {
+  return [
+    {
+      title:
+        "Do you experience sexual attraction specifically towards only those that you care about?",
+      id: QuestionTopic.Demisexual,
+      options: yesNo("demisexual"),
+    },
+  ];
+};
+
 const asexualQuestions = (): Question[] => {
   return [
     {
-      title: "Do you enjoy sex (if you have had it)?",
-      id: QuestionTopic.Enjoy,
-      options: yesNo("enjoy"),
+      title: "Do you still desire a sexual relationship?",
+      id: QuestionTopic.Cupiosexual,
+      options: yesNo("cupiosexual"),
     },
     {
-      title: "Do you theoretically want sex?",
-      id: QuestionTopic.Want,
-      options: yesNo("want"),
+      title:
+        "Do you experience sexual attraction but do not want it reciprocated/acted upon?",
+      id: QuestionTopic.Lithosexual,
+      options: yesNo("lithosexual"),
     },
     {
       title: "Are you repulsed by the idea of physically having sex?",
@@ -87,19 +112,17 @@ const asexualQuestions = (): Question[] => {
   ];
 };
 
-export const initialQuestions = (): Question[] => {
-  return [
-    {
-      title: "Do you experience sexual attraction and want sex?",
-      id: QuestionTopic.Allosexual,
-      options: yesNo("allosexual"),
-    },
-  ];
-};
-
 const yesNo = (id: string): RadioOption[] => {
   return [
     { value: YesNo.Yes, name: `${id}_yes`, label: "Yes" },
     { value: YesNo.No, name: `${id}_no`, label: "No" },
+  ];
+};
+
+const yesNoSometimes = (id: string): RadioOption[] => {
+  return [
+    { value: YesNo.Yes, name: `${id}_yes`, label: "Yes" },
+    { value: YesNo.No, name: `${id}_no`, label: "No" },
+    { value: YesNo.Sometimes, name: `${id}_no`, label: "Sometimes" },
   ];
 };

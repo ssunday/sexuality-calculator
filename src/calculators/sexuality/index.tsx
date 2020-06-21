@@ -2,17 +2,17 @@ import React from "react";
 import RadioQuestion from "components/RadioQuestion";
 import Button from "components/Button";
 import {
-  displayQuestionSet,
+  questionsForMainSexualityChoice,
   QuestionAnswers,
   initialQuestions,
   Question,
 } from "./questions";
 import calculate from "./calculate";
-import { Sexuality } from "./sexualities";
+import { Sexuality } from "./sexuality";
 
 const SexualityCalculatorComponent = (): JSX.Element => {
   const [answers, setAnswers] = React.useState<QuestionAnswers>();
-  const [result, setResult] = React.useState<Sexuality | undefined>();
+  const [result, setResult] = React.useState<Sexuality[] | undefined>();
 
   const resetCalculator = (): void => {
     setResult(undefined);
@@ -23,7 +23,8 @@ const SexualityCalculatorComponent = (): JSX.Element => {
     return (
       <>
         <h2>
-          You may be {result}. Remember only you can know/decide for certain.
+          You may be {result.join(" or ")}. Remember only you can know/decide for
+          certain.
         </h2>
 
         <Button type="submit" onClick={resetCalculator}>
@@ -59,7 +60,7 @@ const SexualityCalculatorComponent = (): JSX.Element => {
   return (
     <>
       {renderQuestions(initialQuestions())}
-      {answers && renderQuestions(displayQuestionSet(answers))}
+      {answers && renderQuestions(questionsForMainSexualityChoice(answers))}
       <Button type="submit" onClick={() => setResult(calculate(answers))}>
         Submit
       </Button>

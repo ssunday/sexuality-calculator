@@ -4,8 +4,12 @@ export enum Sexuality {
   Heterosexual = "Heterosexual",
   Bisexual = "Bisexual",
   Asexual = "Asexual",
+  GrayAsexual = "Gray Asexual",
   Demisexual = "Demisexual",
   Apothisexual = "Apothisexual",
   Pansexual = "Pansexual",
   Autochorisexual = "Autochorisexual",
+  Cupiosexual = "Cupiosexual",
+  Fraysexual = "Fraysexual",
+  Lithosexual = "Lithosexual/Akoisexual",
 }
