@@ -1,5 +1,4 @@
 {
-  "name": "react-static-example-typescript",
   "private": true,
   "scripts": {
     "start": "react-static start",
