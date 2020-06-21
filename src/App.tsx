@@ -3,6 +3,7 @@ import { Root, Routes } from "react-static";
 import { Link, Router } from "@reach/router";
 import { GlobalStyle } from "./Styles";
 import Nav from "components/Nav";
+import Footer from "components/Footer";
 
 const App = (): JSX.Element => {
   return (
@@ -24,6 +25,9 @@ const App = (): JSX.Element => {
           </Router>
         </React.Suspense>
       </div>
+      <Footer>
+        <p>Made by me</p>
+      </Footer>
     </Root>
   );
 };

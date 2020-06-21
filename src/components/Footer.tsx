@@ -1,14 +1,14 @@
 import styled from "styled-components";
 import { COLORS, FONT_SIZE } from "../Styles";
 
-const Nav = styled.nav`
-  background: ${COLORS.BLUE};
+const Footer = styled.footer`
+  background: ${COLORS.DARK_RED};
   display: flex;
   justify-content: space-around;
   padding: 1em 0.5em;
   width: 100%;
 
-  a {
+  p, a {
     color: ${COLORS.WHITE};
     font-size: ${FONT_SIZE.MEDIUM};
     padding: 0.25em;
@@ -19,4 +19,4 @@ const Nav = styled.nav`
     }
   }
 `;
-export default Nav;
+export default Footer;

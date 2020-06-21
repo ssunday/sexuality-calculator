@@ -2,7 +2,9 @@ import React from "react";
 
 const About = (): React.ReactNode => (
   <div>
-    <p>React Static is a progressive static site generator for React.</p>
+    <h1>About</h1>
+    <p>This was made because</p>
+    <h2>Contributors</h2>
   </div>
 );
 
