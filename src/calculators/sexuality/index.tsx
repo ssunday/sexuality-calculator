@@ -1,7 +1,12 @@
 import React from "react";
 import RadioQuestion from "components/RadioQuestion";
 import Button from "components/Button";
-import { displayQuestionSet, QuestionAnswers, initialQuestions, Question } from "./questions";
+import {
+  displayQuestionSet,
+  QuestionAnswers,
+  initialQuestions,
+  Question,
+} from "./questions";
 import calculate from "./calculate";
 import { Sexuality } from "./sexualities";
 
@@ -49,7 +54,7 @@ const SexualityCalculatorComponent = (): JSX.Element => {
         </div>
       );
     });
-  }
+  };
 
   return (
     <>

@@ -30,7 +30,7 @@ export const displayQuestionSet = (answers: QuestionAnswers): Question[] => {
     return allosexualQuestions();
   }
   return asexualQuestions();
-}
+};
 
 const allosexualQuestions = (): Question[] => {
   return [
@@ -59,7 +59,7 @@ const allosexualQuestions = (): Question[] => {
       options: yesNo("pansexual"),
     },
   ];
-}
+};
 
 const asexualQuestions = (): Question[] => {
   return [
@@ -85,7 +85,7 @@ const asexualQuestions = (): Question[] => {
       options: yesNo("autochorisexual"),
     },
   ];
-}
+};
 
 export const initialQuestions = (): Question[] => {
   return [
