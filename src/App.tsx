@@ -12,12 +12,16 @@ const App = (): JSX.Element => {
       <Nav>
         <Link to="/">Home</Link>
         <Link to="/about">About</Link>
+        <Link to="/sexuality-calculator">Sexuality Calculator</Link>
       </Nav>
-      <React.Suspense fallback={<em>Loading...</em>}>
-        <Router>
-          <Routes path="*" />
-        </Router>
-      </React.Suspense>
+      <div className="container">
+        <React.Suspense fallback={<em>Loading...</em>}>
+
+          <Router>
+            <Routes path="*" />
+          </Router>
+        </React.Suspense>
+      </div>
     </Root>
   );
 };

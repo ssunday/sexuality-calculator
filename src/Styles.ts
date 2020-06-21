@@ -27,4 +27,9 @@ export const GlobalStyle = createGlobalStyle`
   img {
     max-width: 100%;
   }
+
+  .container {
+    padding: 2em;
+    max-width: 1200px;
+  }
 `
