@@ -19,19 +19,21 @@ export enum YesNo {
 
 export type QuestionAnswers = Record<number, string>;
 
-type Question = {
+export type Question = {
   title: string;
   id: QuestionTopic;
   options: RadioOption[];
 };
 
-export const allQuestions = (): Question[] => {
+export const displayQuestionSet = (answers: QuestionAnswers): Question[] => {
+  if (answers[QuestionTopic.Allosexual] === YesNo.Yes) {
+    return allosexualQuestions();
+  }
+  return asexualQuestions();
+}
+
+const allosexualQuestions = (): Question[] => {
   return [
-    {
-      title: "Do you experience sexual attraction and want sex?",
-      id: QuestionTopic.Allosexual,
-      options: yesNo("allosexual"),
-    },
     {
       title:
         "Do you experience sexual attraction specifically towards those that identify as your gender?",
@@ -56,6 +58,11 @@ export const allQuestions = (): Question[] => {
       id: QuestionTopic.Pansexual,
       options: yesNo("pansexual"),
     },
+  ];
+}
+
+const asexualQuestions = (): Question[] => {
+  return [
     {
       title: "Do you enjoy sex (if you have had it)?",
       id: QuestionTopic.Enjoy,
@@ -76,6 +83,16 @@ export const allQuestions = (): Question[] => {
         "Are you only interested in sex when it is not you or in a 'imaginative' setting?",
       id: QuestionTopic.Autochorisexual,
       options: yesNo("autochorisexual"),
+    },
+  ];
+}
+
+export const initialQuestions = (): Question[] => {
+  return [
+    {
+      title: "Do you experience sexual attraction and want sex?",
+      id: QuestionTopic.Allosexual,
+      options: yesNo("allosexual"),
     },
   ];
 };

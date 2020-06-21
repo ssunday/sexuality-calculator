@@ -21,7 +21,7 @@ const calculate = (answers: QuestionAnswers): Sexuality => {
     } else if (isYes(answers, QuestionTopic.Demisexual)) {
       return Sexuality.Demisexual;
     }
-    return Sexuality.Unknown;
+    return Sexuality.Allosexual;
   }
 
   if (isYes(answers, QuestionTopic.Apothisexual)) {
@@ -29,8 +29,7 @@ const calculate = (answers: QuestionAnswers): Sexuality => {
   } else if (isYes(answers, QuestionTopic.Autochorisexual)) {
     return Sexuality.Autochorisexual;
   }
-
-  return Sexuality.Unknown;
+  return Sexuality.Asexual;
 };
 
 export default calculate;

@@ -15,7 +15,6 @@ const App = (): JSX.Element => {
       <GlobalStyle />
       <Nav>
         <Link to="/">Home</Link>
-        <Link to="/about">About</Link>
         <Link to="/sexuality-calculator">Sexuality Calculator</Link>
       </Nav>
       <div className="container">
