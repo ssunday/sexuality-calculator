@@ -1,16 +1,16 @@
 import styled from "styled-components";
-import { COLORS, FONT_SIZE } from "../Styles";
+import { Colors, FontSize } from "../Styles";
 
 const Nav = styled.nav`
-  background: ${COLORS.BLUE};
+  background: ${Colors.BLUE};
   display: flex;
   justify-content: space-around;
   padding: 1em 0.5em;
   width: 100%;
 
   a {
-    color: ${COLORS.WHITE};
-    font-size: ${FONT_SIZE.Medium};
+    color: ${Colors.WHITE};
+    font-size: ${FontSize.Medium};
     padding: 0.25em;
     text-decoration: none;
 

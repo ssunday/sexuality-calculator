@@ -1,16 +1,16 @@
 import styled from "styled-components";
-import { COLORS, FONT_SIZE } from "../Styles";
+import { Colors, FontSize } from "../Styles";
 
 const Button = styled.button`
-  background: ${COLORS.GREEN};
+  background: ${Colors.GREEN};
   border: none;
   border-radius: 4px;
-  color: ${COLORS.WHITE};
-  font-size: ${FONT_SIZE.Medium};
+  color: ${Colors.WHITE};
+  font-size: ${FontSize.Medium};
   padding: 1em 2em;
 
   &:hover {
-    background: ${COLORS.DARK_GREEN};
+    background: ${Colors.DARK_GREEN};
   }
 `;
 export default Button;

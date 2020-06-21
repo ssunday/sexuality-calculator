@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { COLORS, FONT_SIZE } from "../Styles";
+import { Colors, FontSize } from "../Styles";
 
 export type RadioOption = {
   value: string;
@@ -15,7 +15,7 @@ type Props = {
 };
 
 const InputWrapper = styled.div`
-  border: 2px solid ${COLORS.PURPLE};
+  border: 2px solid ${Colors.PURPLE};
   border-radius: 2px;
   padding: 1em 4em;
   margin: 0.5em;
@@ -26,30 +26,30 @@ const InputWrapper = styled.div`
 
   label {
     display: inline-flex;
-    font-size: ${FONT_SIZE.Normal};
+    font-size: ${FontSize.Normal};
   }
 
   .radio-mark {
-    background-color: ${COLORS.PURPLE};
+    border: 2px solid ${Colors.PURPLE};
     border-radius: 50%;
     content: "";
     display: inline-block;
-    height: 2em;
+    height: 1em;
     left: -100%;
     position: relative;
-    width: 2em;
+    width: 1em;
   }
 
   input:checked ~ .radio-mark:after {
-    background-color: ${COLORS.WHITE};
+    background-color: ${Colors.PURPLE};
     border-radius: 50%;
     content: "";
     display: inline-block;
     left: 25%;
-    height: 1em;
+    height: 0.5em;
     position: relative;
-    top: 25%;
-    width: 1em;
+    top: -25%;
+    width: 0.5em;
   }
 `;
 
