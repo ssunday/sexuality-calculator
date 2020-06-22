@@ -18,8 +18,8 @@ type Props = {
 const InputWrapper = styled.div`
   border: 3px solid ${Colors.Purple};
   border-radius: 2px;
-  padding: 1em 1em 1em 3em;
-  margin: 1em 1em 0 0;
+  padding: 1em 1em 1em 2em;
+  margin: 1em 0.5em 0 0;
 
   input {
     opacity: 0;
