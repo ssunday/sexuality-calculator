@@ -10,6 +10,7 @@ export enum Colors {
   DarkGreen = "#044200",
   Purple = "#6700C2",
   LightPurple = "#9214FF",
+  Black = "#000",
   Grey = "#595959",
   OffWhite = "#C7C7C7",
   White = "#FFF",

@@ -18,8 +18,14 @@ type Props = {
 const InputWrapper = styled.div`
   border: 3px solid ${Colors.Purple};
   border-radius: 2px;
-  padding: 1em 1em 1em 2em;
-  margin: 1em 0.5em 0 0;
+  padding: 1em 2em 1em 3em;
+  margin: 0 0.5em 0 0;
+
+  @media (max-width: 800px) {
+    flex: 1;
+    max-width: 30%;
+    padding: 1em 0.5em 1em 2em;
+  }
 
   input {
     opacity: 0;
@@ -27,7 +33,7 @@ const InputWrapper = styled.div`
 
   label {
     display: inline-flex;
-    font-size: ${FontSize.Normal};
+    font-size: ${FontSize.Medium};
     font-weight: bold;
   }
 
@@ -56,15 +62,22 @@ const InputWrapper = styled.div`
 `;
 
 const QuestionWrapper = styled.div`
+  border-bottom: 2px solid ${Colors.Black};
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  margin: 0 0 1em 0;
+  padding: 1em 0;
+`;
+
+const QuestionTitle = styled.h3`
+  margin: 1em 0 0 0;
 `;
 
 const RadioQuestion = (props: Props): JSX.Element => {
   return (
     <>
-      <h3>{props.question}</h3>
+      <QuestionTitle>{props.question}</QuestionTitle>
       <QuestionWrapper>
         {props.options.map((option) => {
           return (
