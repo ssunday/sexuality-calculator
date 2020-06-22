@@ -7,6 +7,7 @@ export const Button = styled.button`
   border-radius: 10px;
   color: ${Colors.White};
   font-size: ${FontSize.Medium};
+  margin: 1em 2em 0 0;
   padding: 0.75em 1.5em;
 
   &:hover {
@@ -20,6 +21,7 @@ export const SecondaryButton = styled.button`
   border-radius: 10px;
   color: ${Colors.White};
   font-size: ${FontSize.Medium};
+  margin: 1em 2em 0 0;
   padding: 0.75em 1.5em;
 
   &:hover {

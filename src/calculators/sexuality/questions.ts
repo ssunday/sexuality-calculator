@@ -64,7 +64,7 @@ const grayAceQuestions = (): Question[] => {
   return [
     {
       title:
-        "Do you experience sexual attraction specifically towards only those that you care about?",
+        "Do you experience sexual attraction specifically towards only those that you care deeply about?",
       id: Sexuality.Demisexual,
       options: yesNo("demisexual"),
     },
@@ -79,13 +79,13 @@ const grayAceQuestions = (): Question[] => {
 const asexualQuestions = (): Question[] => {
   return [
     {
-      title: "Do you still desire a sexual relationship?",
+      title: "Do you still desire a sexual relationship without any attraction?",
       id: Sexuality.Cupiosexual,
       options: yesNo("cupiosexual"),
     },
     {
       title:
-        "Do you experience sexual attraction but do not want it reciprocated/acted upon?",
+        "Do you experience sexual desire but do not want it reciprocated/acted upon?",
       id: Sexuality.Lithosexual,
       options: yesNo("lithosexual"),
     },
@@ -96,7 +96,7 @@ const asexualQuestions = (): Question[] => {
     },
     {
       title:
-        "Are you only interested in sex when it is not you or in a 'imaginative' setting?",
+        "Are you only interested in sex when it is not you or in a 'imaginative' setting (i.e. fantasy scenarios or with characters)?",
       id: Sexuality.Autochorisexual,
       options: yesNo("autochorisexual"),
     },
@@ -111,9 +111,7 @@ const yesNo = (id: string): RadioOption[] => {
 };
 
 const yesNoSometimes = (id: string): RadioOption[] => {
-  return [
-    { value: YesNo.Yes, name: `${id}_yes`, label: "Yes" },
-    { value: YesNo.No, name: `${id}_no`, label: "No" },
+  return yesNo(id).concat([
     { value: YesNo.Sometimes, name: `${id}_no`, label: "Sometimes" },
-  ];
+  ]);
 };

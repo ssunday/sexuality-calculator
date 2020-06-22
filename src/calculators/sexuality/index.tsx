@@ -50,6 +50,13 @@ const SexualityCalculatorComponent = (): JSX.Element => {
 
   return (
     <>
+      <p>
+        Answer each question you can to the best of your ability, choosing the most applicable response. The results will come in the form of any possible sexuality that matches your responses.
+      </p>
+      <p>
+        Whatever the results, only you can know and decide for certain. This is
+        just to help.
+      </p>
       {renderQuestions(initialQuestions())}
       {renderQuestions(applicableQuestions)}
       {allQuestionsAnswered && (
@@ -57,6 +64,7 @@ const SexualityCalculatorComponent = (): JSX.Element => {
           Submit
         </Button>
       )}
+
       {result && <h2>You may be {result.join(" or ")}.</h2>}
 
       <SecondaryButton type="button" onClick={() => resetCalculator()}>

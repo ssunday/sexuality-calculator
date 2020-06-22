@@ -16,10 +16,10 @@ type Props = {
 };
 
 const InputWrapper = styled.div`
-  border: 2px solid ${Colors.Purple};
+  border: 3px solid ${Colors.Purple};
   border-radius: 2px;
-  padding: 1em 4em;
-  margin: 0.5em;
+  padding: 1em 1em 1em 3em;
+  margin: 1em 1em 0 0;
 
   input {
     opacity: 0;
@@ -28,6 +28,7 @@ const InputWrapper = styled.div`
   label {
     display: inline-flex;
     font-size: ${FontSize.Normal};
+    font-weight: bold;
   }
 
   .radio-mark {
