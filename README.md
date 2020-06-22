@@ -1,8 +1,8 @@
 # Sexuality Calculator
 
-This is still WIP, language very rough, needs to be better, I know.
+This is still WIP, language very rough, needs to be better, I know. If you have suggestions, please leave an issue or pull request.
 
-Built with [React Static](https://github.com/react-static/react-static), styled-components, and Typescript.
+Built with [React Static](https://github.com/react-static/react-static), [styled-components](https://styled-components.com), and TypeScript.
 
 ## Setup
 
@@ -15,4 +15,5 @@ Built with [React Static](https://github.com/react-static/react-static), styled-
 
 ## Testing
 
-`npm run test`
+- `npm run test`
+- `npm run test:watch`
