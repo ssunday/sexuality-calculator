@@ -1,9 +1,8 @@
 import React from "react";
 import { Root, Routes } from "react-static";
-import { Link, Router } from "@reach/router";
+import { Router } from "@reach/router";
+import Layout from "components/Layout";
 import { GlobalStyle } from "./Styles";
-import Nav from "components/Nav";
-import Footer from "components/Footer";
 
 const App = (): JSX.Element => {
   return (
@@ -13,18 +12,13 @@ const App = (): JSX.Element => {
         rel="stylesheet"
       />
       <GlobalStyle />
-      <Nav>
-        <Link to="/">Home</Link>
-        <Link to="/sexuality-calculator">Sexuality Calculator</Link>
-      </Nav>
-      <div className="container">
-        <React.Suspense fallback={<em>Loading...</em>}>
+      <Layout>
+        <React.Suspense fallback={<b>Loading page...</b>}>
           <Router>
             <Routes path="*" />
           </Router>
         </React.Suspense>
-      </div>
-      <Footer></Footer>
+      </Layout>
     </Root>
   );
 };

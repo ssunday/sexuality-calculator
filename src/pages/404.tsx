@@ -1,9 +1,9 @@
 import React from "react";
 
-const NotFound = (): React.ReactNode => (
-  <div>
-    <h1>404 - Oh no! Page not found</h1>
-  </div>
+const NotFound = (): JSX.Element => (
+  <>
+    <h1>404 - Not Found</h1>
+  </>
 );
 
 export default NotFound;

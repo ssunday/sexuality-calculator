@@ -8,16 +8,16 @@ const Footer = styled.footer`
   padding: 1em 0.5em;
   width: 100%;
 
-  p,
-  a {
+  p {
     color: ${Colors.White};
     font-size: ${FontSize.Medium};
     padding: 0.25em;
-    text-decoration: none;
+  }
 
-    &:hover {
-      text-decoration: underline;
-    }
+  a {
+    color: ${Colors.White};
+    text-decoration: underline;
   }
 `;
+
 export default Footer;

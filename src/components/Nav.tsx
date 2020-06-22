@@ -25,4 +25,5 @@ const Nav = styled.nav`
     border-bottom-color: ${Colors.LightPurple};
   }
 `;
+
 export default Nav;

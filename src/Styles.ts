@@ -41,4 +41,8 @@ export const GlobalStyle = createGlobalStyle`
     padding: 2em;
     max-width: 1200px;
   }
+
+  a {
+    color: ${Colors.Blue};
+  }
 `;
