@@ -12,8 +12,14 @@ const Layout = ({ children }: { children: JSX.Element }): JSX.Element => {
       </Nav>
       <div className="container">{children}</div>
       <Footer>
-        <p>Built by <a href="https://sasunday.com">Sarah Sunday</a></p>
-        <p><a href="https://github.com/ssunday/sexuality-calculator">Code on Github</a></p>
+        <p>
+          Built by <a href="https://sasunday.com">Sarah Sunday</a>
+        </p>
+        <p>
+          <a href="https://github.com/ssunday/sexuality-calculator">
+            Code on Github
+          </a>
+        </p>
       </Footer>
     </>
   );
