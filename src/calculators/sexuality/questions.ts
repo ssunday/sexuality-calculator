@@ -79,7 +79,8 @@ const grayAceQuestions = (): Question[] => {
 const asexualQuestions = (): Question[] => {
   return [
     {
-      title: "Do you still desire a sexual relationship without any attraction?",
+      title:
+        "Do you still desire a sexual relationship without any attraction?",
       id: Sexuality.Cupiosexual,
       options: yesNo("cupiosexual"),
     },

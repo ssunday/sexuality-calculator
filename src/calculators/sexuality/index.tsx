@@ -1,4 +1,5 @@
 import React from "react";
+import styled from "styled-components";
 import RadioQuestion from "components/RadioQuestion";
 import { Button, SecondaryButton } from "components/Button";
 import {
@@ -9,6 +10,21 @@ import {
 } from "./questions";
 import calculate from "./calculate";
 import { Sexuality } from "./sexuality";
+import { Colors } from "../../Styles";
+
+const Results = styled.div`
+  margin: 2em 0 0 0;
+  min-height: 4em;
+
+  div {
+    border: 1px solid ${Colors.Black};
+    padding: 1em;
+  }
+
+  h3 {
+    margin: 0;
+  }
+`;
 
 const SexualityCalculatorComponent = (): JSX.Element => {
   const [answers, setAnswers] = React.useState<QuestionAnswers>();
@@ -19,22 +35,23 @@ const SexualityCalculatorComponent = (): JSX.Element => {
     setAnswers(undefined);
   };
 
+  const updateAnswers = (question: Question, value: string): void => {
+    if (answers) {
+      setAnswers({ ...answers, [question.id]: value });
+    } else {
+      setAnswers({ [question.id]: value });
+    }
+    setResult(undefined);
+  };
+
   const renderQuestions = (questions: Question[]): JSX.Element[] => {
     return questions.map((question) => {
-      const updateAnswers = (value: string): void => {
-        if (answers) {
-          setAnswers({ ...answers, [question.id]: value });
-        } else {
-          setAnswers({ [question.id]: value });
-        }
-      };
-
       return (
         <div key={question.id}>
           <RadioQuestion
             question={question.title}
             value={answers ? answers[question.id] : undefined}
-            onChange={updateAnswers}
+            onChange={(value: string) => updateAnswers(question, value)}
             options={question.options}
           />
         </div>
@@ -51,7 +68,9 @@ const SexualityCalculatorComponent = (): JSX.Element => {
   return (
     <>
       <p>
-        Answer each question you can to the best of your ability, choosing the most applicable response. The results will come in the form of any possible sexuality that matches your responses.
+        Answer each question you can to the best of your ability, choosing the
+        most applicable response. The results will come in the form of any
+        possible sexuality that matches your responses.
       </p>
       <p>
         Whatever the results, only you can know and decide for certain. This is
@@ -59,17 +78,25 @@ const SexualityCalculatorComponent = (): JSX.Element => {
       </p>
       {renderQuestions(initialQuestions())}
       {renderQuestions(applicableQuestions)}
-      {allQuestionsAnswered && (
-        <Button type="submit" onClick={() => setResult(calculate(answers))}>
-          Submit
-        </Button>
-      )}
+      <div>
+        {allQuestionsAnswered && (
+          <Button type="submit" onClick={() => setResult(calculate(answers))}>
+            Submit
+          </Button>
+        )}
 
-      {result && <h2>You may be {result.join(" or ")}.</h2>}
+        <SecondaryButton type="button" onClick={() => resetCalculator()}>
+          Reset
+        </SecondaryButton>
+      </div>
 
-      <SecondaryButton type="button" onClick={() => resetCalculator()}>
-        Reset
-      </SecondaryButton>
+      <Results>
+        {result && (
+          <div>
+            <h3>You may be {result.join(" or ")}.</h3>
+          </div>
+        )}
+      </Results>
     </>
   );
 };
