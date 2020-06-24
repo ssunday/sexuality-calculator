@@ -70,11 +70,14 @@ const SexualityCalculatorComponent = (): JSX.Element => {
       <p>
         Answer each question to the best of your ability, choosing the most
         applicable response. The results will come in the form of possible
-        sexualities, hopefully helping you figure out the right term. Whatever the results, only you can know and decide for certain. This is just to try to help.
+        sexualities, hopefully helping you figure out the right term. Whatever
+        the results, only you can know and decide for certain. This is just to
+        try to help.
       </p>
       <p>
-        If you see an issue or have a suggestion, please make a pull request or issue
-        on <a href="https://github.com/ssunday/sexuality-calculator">Github</a>.
+        If you see an issue or have a suggestion, please make a pull request or
+        issue on{" "}
+        <a href="https://github.com/ssunday/sexuality-calculator">Github</a>.
       </p>
       {renderQuestions(initialQuestions())}
       {renderQuestions(applicableQuestions)}
