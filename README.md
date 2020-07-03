@@ -13,6 +13,8 @@ Built with [React Static](https://github.com/react-static/react-static), [styled
 
 ## Linting
 
+TypeScript, Prettier, and jsx-a11y linting.
+
 `npm run lint:fix`
 
 ## Testing
