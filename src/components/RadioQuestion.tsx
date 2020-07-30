@@ -23,7 +23,7 @@ const InputWrapper = styled.div`
 
   @media (max-width: 800px) {
     flex: 1;
-    max-width: 30%;
+    margin: 0.25em;
     padding: 1em 0.5em 1em 2em;
   }
 
