@@ -1,0 +1,16 @@
+version: 2.1
+
+jobs:
+  lint_test:
+    docker:
+      - image: circleci/node:14
+    steps:
+      - checkout
+      - run: npm install
+      - run: npm run lint
+      - run: npm run test
+
+workflows:
+  lint_and_test:
+    jobs:
+      - lint_test
