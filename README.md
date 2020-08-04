@@ -1,6 +1,6 @@
 # Sexuality Calculator
 
-[On S3](http://sexuality-calculator.s3-website.us-east-2.amazonaws.com)
+[Try it here](https://sexuality-calculator.sasunday.com)
 
 This is still vaguely WIP. The questions could be phrased better for sure. If you have suggestions, please leave an issue or pull request.
 
