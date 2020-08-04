@@ -6,6 +6,7 @@
     "build": "react-static build",
     "bundle": "react-static bundle",
     "export": "react-static export",
+    "lint": "eslint src spec",
     "lint:fix": "eslint --fix src spec",
     "test": "jest",
     "test:watch": "jest --watch",
