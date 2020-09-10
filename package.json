@@ -24,6 +24,7 @@
     "styled-components": "^5.1.1"
   },
   "devDependencies": {
+    "@testing-library/react": "^11.0.2",
     "@types/jest": "^26.0.0",
     "@types/node": "^12.7.2",
     "@types/reach__router": "^1.2",
