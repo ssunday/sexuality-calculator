@@ -24,4 +24,6 @@ TypeScript, Prettier, and jsx-a11y linting.
 
 ## Deploying
 
-It's just an S3 bucket with static website hosting. Nothing fancy. Build the files, sync them up.
+The website is hosted in a S3 Bucket with Cloudfront sitting in front of it.
+
+Deploys are handled via CircleCI.
